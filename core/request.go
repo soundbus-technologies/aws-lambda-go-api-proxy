@@ -165,5 +165,7 @@ func (r *RequestAccessor) ProxyEventToHTTPRequest(req events.APIGatewayProxyRequ
 	httpRequest.Header.Add(APIGwContextHeader, string(apiGwContext))
 	httpRequest.Header.Add(APIGwStageVarsHeader, string(stageVars))
 
+	httpRequest.RequestURI = req.Path
+
 	return httpRequest, nil
 }
